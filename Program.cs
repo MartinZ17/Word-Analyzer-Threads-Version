@@ -1,4 +1,4 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 
 namespace WordAnalyzerThreadVersion
 {
@@ -6,22 +6,22 @@ namespace WordAnalyzerThreadVersion
     {
         static void Main(string[] args)
         {
-            //string test1 = "My, -          -name, name, name. Gosho. Gosho, !name Petkov is, Gosho Petkov. Motor, Kolelo, pet, a";
             string file = "Douglas-Kennedy_-_Ubijstven_biznes_-_6415-b.txt"; //Path to the file
             string[] data = { };
             Console.WriteLine("Reading File.....");
+
             if (File.Exists(file))
             {
                 string readedFile = File.ReadAllText(file);
                 string resultString = Regex.Replace(readedFile, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
                 data = resultString.Split(new char[] { ' ', ',', '.', '!', '?', '-', ';', '/', ':', '„', '“', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
             }
-
             else
             {
                 Console.WriteLine("File is not found. Try to edit the path of the file");
                 Environment.Exit(1);
             }
+
             List<string> validWords = new List<string>();
             foreach (string word in data)
             {
