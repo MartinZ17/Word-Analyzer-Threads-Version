@@ -14,6 +14,6 @@ First, we save in a string variable the path to the book file that was downloade
 We read the file as a string, then remove the empty lines using a regular expression. We split the string into a clean array that contains only the words from the text. All words smaller than 3 characters are not counted as words. We clear these words using foreach and write the already filtered words to List.
 
 We make 6 methods for different analyses.
-As the last two are more complex and there we use Dictionary to keep word frequency. And then in a new List we record the five results we are interested in (5 most frequently used and 5 least used)
+As the last two are more complex and there we use Dictionary to keep word frequency. And then in a new List we record the five results we are interested in (5 most frequently used and 5 least used).
 We make 6 threads, each of which accepts one of the six methods.
 We start the threads where the methods are executed and return result directly to the console because the methods are void.
