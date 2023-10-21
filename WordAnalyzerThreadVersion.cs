@@ -2,16 +2,22 @@ using System.Text.RegularExpressions;
 
 namespace WordAnalyzerThreadVersion
 {
-    internal class Program
+    internal class WordAnalyzerThreadVersion
     {
         static void Main(string[] args)
         {
-            string file = "Douglas-Kennedy_-_Ubijstven_biznes_-_6415-b.txt"; //Path to the file
+            Console.WriteLine("Please enter the path to the book you want to analyze");
+            Console.WriteLine("Example: C:\\Users\\user\\Desktop\\ПУ\\C# TBL\\Homework1\\WordAnalyzer\\TestFile.txt");
+            string file = Console.ReadLine();
+            
             string[] data = { };
+
+            Console.WriteLine();
             Console.WriteLine("Reading File.....");
 
             if (File.Exists(file))
             {
+                Console.WriteLine("Reading complete");
                 string readedFile = File.ReadAllText(file);
                 string resultString = Regex.Replace(readedFile, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
                 data = resultString.Split(new char[] { ' ', ',', '.', '!', '?', '-', ';', '/', ':', '„', '“', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
@@ -30,6 +36,7 @@ namespace WordAnalyzerThreadVersion
                     validWords.Add(word);
                 }
             }
+            Console.WriteLine();
 
             Thread numberOfWordsThread = new Thread(() => NumberOfWords(validWords));
             Thread shortesWordThread = new Thread(() => ShortestWord(validWords));
