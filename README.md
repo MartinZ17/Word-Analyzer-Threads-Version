@@ -17,3 +17,6 @@ We make 6 methods for different analyses.
 As the last two are more complex and there we use Dictionary to keep word frequency. And then in a new List we record the five results we are interested in (5 most frequently used and 5 least used).
 We make 6 threads, each of which accepts one of the six methods.
 We start the threads where the methods are executed and return result directly to the console because the methods are void.
+
+
+BONUS: I add the basic version of the program. Enjoy!
